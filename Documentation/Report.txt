@@ -1,0 +1,6 @@
+10-2-2016
+Topic Finalized
+
+11-2-2026
+Know about various models: Naive Bayers,Logistic Regression ,Random Forest.
+Getting to know about Python ML
