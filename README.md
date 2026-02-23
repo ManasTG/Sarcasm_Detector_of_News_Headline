@@ -96,17 +96,38 @@ The goal is to build a classification model to detect sarcasm in news headlines.
 - Evaluate performance
 - Store predictions in SQL database
 
-## Project Architecture
-Data Collection
-        ↓
-Data Cleaning (NLP Preprocessing)
-        ↓
-Feature Engineering (TF-IDF / Word Embeddings)
-        ↓
-Model Training (Logistic Regression / Naive Bayes / LSTM)
-        ↓
-Evaluation (Accuracy, F1 Score)
-        ↓
-SQL Storage
-        ↓
-Power BI Dashboard (Optional)
+
+---
+# ✅ End-to-End Pipeline Summary
+
+Data Collection  
+↓  
+Data Cleaning (NLP Preprocessing)  
+↓  
+Feature Engineering (TF-IDF / Word Embeddings)  
+↓  
+Model Training (Logistic Regression / Naive Bayes / LSTM)  
+↓  
+Evaluation (Accuracy, F1 Score)  
+↓  
+SQL Storage  
+↓  
+Power BI Dashboard  
+
+---
+
+## 🎯 Outcome
+
+This project demonstrates:
+
+- NLP pipeline development
+- Machine Learning model implementation
+- Database integration
+- Business Intelligence reporting
+- End-to-end data science workflow
+
+---
+
+👨‍💻 MEMBER: Md Asif 
+           MANAS
+Project Type: NLP + Machine Learning + SQL Integration
