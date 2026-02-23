@@ -72,6 +72,7 @@ python train.py
 ## TEAM MEMBER
 
 Md Asif
+MANAS
 
 
 
