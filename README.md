@@ -52,13 +52,13 @@ The model predicts:
 ## 📁 Project Structure
 
 sarcasm-news-detector/
-│
-├── data/
-├── notebooks/
-├── src/
-├── app.py
-├── requirements.txt
-├── README.md
+  │
+- ├── data/
+ -├── notebooks/
+  -├── src/
+ -├── app.py
+ -├── requirements.txt
+ - README.md
 
 ---
 
@@ -72,7 +72,7 @@ python train.py
 ## TEAM MEMBER
 
 Md Asif
-MANAS
+-MANAS
 
 
 
