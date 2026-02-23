@@ -35,7 +35,7 @@ df = df [['headline', 'is_sarcastic']]
 
 def clean_text(text):
     text = text.lower() # makes everything lowercase
-    text = re.sub('r^[^a-z/s]', '', text)   # remove punctuation & numbers
+    text = re.sub(r'[^a-z\s]', '', text)   # remove punctuation & numbers
     text = text.strip() # remove extra space
     return text
 
@@ -127,15 +127,13 @@ for name, model in models.items():
 import pickle
 import os
 
-# Save in your project folder
-save_path = r"E:\Manas\College\4th\Small_Project\Sarcasm-Detector-of-News-Headline\Python_ML"
+# Save in the project folder
 
-with open(os.path.join(save_path, MODEL_PATH), "wb") as f:
+with open(MODEL_PATH, "wb") as f:
     pickle.dump(nb_model, f)
 
-with open(os.path.join(save_path, VECTORIZER_PATH), "wb") as f:
+with open(VECTORIZER_PATH, "wb") as f:
     pickle.dump(vectorizer, f)
 
 print("Model saved!")
 print("Vectorizer saved!")
-print("Saved in:", save_path)
