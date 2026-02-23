@@ -97,3 +97,17 @@ The goal is to build a classification model to detect sarcasm in news headlines.
 - Evaluate performance
 - Store predictions in SQL database
 
+🏗️ Project Architecture
+Data Collection
+        ↓
+Data Cleaning (NLP Preprocessing)
+        ↓
+Feature Engineering (TF-IDF / Word Embeddings)
+        ↓
+Model Training (Logistic Regression / Naive Bayes / LSTM)
+        ↓
+Evaluation (Accuracy, F1 Score)
+        ↓
+SQL Storage
+        ↓
+Power BI Dashboard (Optional)
