@@ -51,7 +51,7 @@ The model predicts:
 
 ## 📁 Project Structure
 
-sarcasm-news-detector/
+##sarcasm-news-detector/
   │
 - ├── data/
  -├── notebooks/
@@ -70,9 +70,8 @@ python train.py
 ---
 
 ## TEAM MEMBER
-
 Md Asif
--MANAS
+MANAS
 
 
 
@@ -97,7 +96,7 @@ The goal is to build a classification model to detect sarcasm in news headlines.
 - Evaluate performance
 - Store predictions in SQL database
 
-🏗️ Project Architecture
+## Project Architecture
 Data Collection
         ↓
 Data Cleaning (NLP Preprocessing)
