@@ -129,5 +129,6 @@ This project demonstrates:
 ---
 
 👨‍💻 MEMBER: Md Asif 
-           MANAS
-Project Type: NLP + Machine Learning + SQL Integration
+          - MANAS
+          - Project Type: NLP + Machine Learning + SQL Integration
+---
