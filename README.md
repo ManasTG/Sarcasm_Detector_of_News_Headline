@@ -127,7 +127,7 @@ This project demonstrates:
 - End-to-end data science workflow
 
 ---
-
+```
 👨‍💻 MEMBER: Md Asif 
           - MANAS
           - Project Type: NLP + Machine Learning + SQL Integration
