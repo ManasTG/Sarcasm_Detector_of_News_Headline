@@ -50,7 +50,7 @@ The model predicts:
 ---
 
 ## 📁 Project Structure
-
+```
 ##sarcasm-news-detector/
   │
 - ├── data/
@@ -61,7 +61,7 @@ The model predicts:
  - README.md
 
 ---
-
+```
 ## ▶️ How to Run
 
 pip install -r requirements.txt  
