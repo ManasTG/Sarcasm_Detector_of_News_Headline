@@ -5,13 +5,14 @@ import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Build paths relative to that
-MODEL_PATH = os.path.join(BASE_DIR, "nb_model.pkl")
+MODEL_PATH = os.path.join(BASE_DIR, "svm_model.pkl") 
 VECTORIZER_PATH = os.path.join(BASE_DIR, "vectorizer.pkl")
 
 #%%
 import pickle
 
 # Load saved model and vectorizer
+
 with open(MODEL_PATH, "rb") as f:
     loaded_model = pickle.load(f)
 

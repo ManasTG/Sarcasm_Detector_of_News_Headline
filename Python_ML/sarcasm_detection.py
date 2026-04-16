@@ -84,11 +84,13 @@ print("Features (unique words):", x_train_vec.shape[1])
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.svm import LinearSVC
 
 # Define models
 nb_model = MultinomialNB()
 lr_model = LogisticRegression(max_iter=1000, class_weight='balanced')   # (maximum number of times the models is given to improve itself{default = 100}, we have a bit more non sarcastic comments so it ensures balance and not bias to one another)
 rf_model = RandomForestClassifier(n_estimators=100, random_state=42, class_weight='balanced')   # (built 100 decision trees and more majority vote. More trees= more accurate but slow, randomness of the input, to insure balance)
+svm_model = LinearSVC(class_weight='balanced', max_iter=2000)
 
 # Train all 3
 nb_model.fit(x_train_vec, y_train)
@@ -100,20 +102,27 @@ print("Logistic Regression trained!")
 rf_model.fit(x_train_vec, y_train)
 print("Random Forest trained!")
 
+svm_model.fit(x_train_vec, y_train)  # ✅ NEW
+print("SVM trained!")
 
 #%% Evaluate Models
 
 from sklearn.metrics import accuracy_score, classification_report
+import matplotlib.pyplot as plt
 
 models = {
     "Naive Bayes": nb_model,
     "Logistic Regression": lr_model,
-    "Random Forest": rf_model
+    "Random Forest": rf_model,
+    "SVM": svm_model  
     }
+
+results = []  
 
 for name, model in models.items():
     y_pred = model.predict(x_test_vec)
     accuracy = accuracy_score(y_test, y_pred)
+    results.append({"Model": name, "Accuracy": accuracy}) 
     print(f"\n{'='*45}")
     print(f"{name}")
     print(f"{'='*45}")
@@ -121,7 +130,19 @@ for name, model in models.items():
     print(classification_report(y_test, y_pred, 
           target_names=['Not Sarcastic', 'Sarcastic']))
     
-    
+model_names = [r["Model"] for r in results]
+accuracies = [r["Accuracy"] * 100 for r in results]
+
+plt.figure(figsize=(8, 5))
+bars = plt.bar(model_names, accuracies, color=['#4C72B0', '#55A868', '#C44E52', '#8172B2'])
+plt.ylim(70, 95)
+plt.ylabel('Accuracy (%)')
+plt.title('Model Comparison - Sarcasm Detection')
+for bar, acc in zip(bars, accuracies):
+    plt.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 0.3,
+             f'{acc:.2f}%', ha='center', va='bottom', fontweight='bold')
+plt.tight_layout()
+plt.show()
 
 #%% Save the Model
 import pickle
@@ -130,8 +151,8 @@ import os
 # Save in the project folder
 
 with open(MODEL_PATH, "wb") as f:
-    pickle.dump(nb_model, f)
-
+    pickle.dump(lr_model, f)
+    
 with open(VECTORIZER_PATH, "wb") as f:
     pickle.dump(vectorizer, f)
 
