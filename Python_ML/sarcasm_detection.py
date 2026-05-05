@@ -5,7 +5,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Build paths relative to that
-MODEL_PATH = os.path.join(BASE_DIR, "nb_model.pkl")
+MODEL_PATH = os.path.join(BASE_DIR, "svm_model.pkl")
 VECTORIZER_PATH = os.path.join(BASE_DIR, "vectorizer.pkl")
 DATASET_PATH = os.path.join(BASE_DIR, "..", "Dataset", "Sarcasm_Headlines_Dataset_v2.json")
 
@@ -151,7 +151,7 @@ import os
 # Save in the project folder
 
 with open(MODEL_PATH, "wb") as f:
-    pickle.dump(lr_model, f)
+    pickle.dump(svm_model, f)
     
 with open(VECTORIZER_PATH, "wb") as f:
     pickle.dump(vectorizer, f)

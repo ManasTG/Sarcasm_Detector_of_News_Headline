@@ -1,6 +1,42 @@
 10-2-2016
-Topic Finalized
+Topic Finalized - Sarcasm Detectioin of News Headline using ML
 
 11-2-2026
 Know about various models: Naive Bayers,Logistic Regression ,Random Forest.
 Getting to know about Python ML
+Gave Fahim and Yash to find the dataset for the project.
+
+23-2-2026
+Started working with the project and completed the backend with Nb, Lr, RF
+
+3-3-2026
+Fine tuning the TF-IDF to get better confidence but it doesn't get better not atleast without extended period of time poured into it.
+
+--Exam break--
+
+25-3-2026
+Revisiting old code and finding a better Classifier. Linear SVM
+
+27-3-2026
+Synopsis created
+
+15-4-2026
+Implemented Linear SVM with marginal improvements
+
+29-4-2026
+Asif created the Frontend using the Streamlit library.
+Slight improvements needed.
+Not going to fine tune TF-IDF further from now on.
+
+1-4-2026
+Started working on Report
+
+2-4-2026
+Improved Streamlit, further improvements needed.
+
+3-4-2026
+Ram Created the PPT, just minor touches needed.
+
+5-4-2026
+Report file finally completed at 5AM.
+
