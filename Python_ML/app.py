@@ -23,7 +23,7 @@ st.set_page_config(
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-MODEL_PATH = os.path.join(BASE_DIR, "svm_model.pkl")
+MODEL_PATH = os.path.join(BASE_DIR, "lr_model.pkl")
 VECTORIZER_PATH = os.path.join(BASE_DIR, "vectorizer.pkl")
 
 @st.cache_resource
@@ -55,17 +55,14 @@ def predict_sarcasm(text):
     cleaned = clean_text(text)
     vec = vectorizer.transform([cleaned])
 
-    result = model.predict(vec)[0]
+    proba = model.predict_proba(vec)[0][1]
 
-    # ⚠️ LinearSVC doesn't support predict_proba
-    try:
-        confidence = model.predict_proba(vec).max()
-    except:
-        confidence = 0.0
+    if proba > 0.75:
+        label = "Sarcastic"
+    else:
+        label = "Not Sarcastic"
 
-    label = "Sarcastic 😏" if result == 1 else "Not Sarcastic 🙂"
-
-    return label, confidence
+    return label, proba
 
 # -------------------------------
 # SIDEBAR NAVIGATION
@@ -158,7 +155,7 @@ elif page == "Project Pros & Cons":
 
 elif page == "Try Model":
 
-    st.title("🧠 Sarcasm Detector")
+    st.title("Sarcasm Detector")
 
     st.write("Enter a news headline to check if it's sarcastic.")
 

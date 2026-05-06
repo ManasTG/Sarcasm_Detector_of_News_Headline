@@ -5,7 +5,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Build paths relative to that
-MODEL_PATH = os.path.join(BASE_DIR, "svm_model.pkl")
+MODEL_PATH = os.path.join(BASE_DIR, "lr_model.pkl")
 VECTORIZER_PATH = os.path.join(BASE_DIR, "vectorizer.pkl")
 DATASET_PATH = os.path.join(BASE_DIR, "..", "Dataset", "Sarcasm_Headlines_Dataset_v2.json")
 
@@ -68,7 +68,7 @@ x_train, x_test, y_train, y_test = train_test_split(
 
 # Convert words to numbers using TF-IDF
 
-vectorizer = TfidfVectorizer(max_features=5000, ngram_range=(1,2))  # keeps top 5000 most frequent words.. saves from confusion; ngram captures context not only words
+vectorizer = TfidfVectorizer(max_features=5000, ngram_range=(1,2), stop_words='english')  # keeps top 5000 most frequent words.. saves from confusion; ngram captures context not only words
 x_train_vec = vectorizer.fit_transform(x_train) # fit- takes the 5000 words from the dictionary; transform changes those words to numbers
 x_test_vec = vectorizer.transform(x_test)   # numerical version of the headlines, ready to handed over to model
 
@@ -88,13 +88,13 @@ from sklearn.svm import LinearSVC
 
 # Define models
 nb_model = MultinomialNB()
-lr_model = LogisticRegression(max_iter=1000, class_weight='balanced')   # (maximum number of times the models is given to improve itself{default = 100}, we have a bit more non sarcastic comments so it ensures balance and not bias to one another)
+lr_model = LogisticRegression(max_iter=1000)   # (maximum number of times the models is given to improve itself{default = 100}, we have a bit more non sarcastic comments so it ensures balance and not bias to one another)
 rf_model = RandomForestClassifier(n_estimators=100, random_state=42, class_weight='balanced')   # (built 100 decision trees and more majority vote. More trees= more accurate but slow, randomness of the input, to insure balance)
 svm_model = LinearSVC(class_weight='balanced', max_iter=2000)
 
 # Train all 3
-nb_model.fit(x_train_vec, y_train)
-print("Naive Bayes trained!")
+nb_model.fit(x_train_vec, y_train) 
+print("Naives Bayes trained!")
 
 lr_model.fit(x_train_vec, y_train)
 print("Logistic Regression trained!")
@@ -102,7 +102,7 @@ print("Logistic Regression trained!")
 rf_model.fit(x_train_vec, y_train)
 print("Random Forest trained!")
 
-svm_model.fit(x_train_vec, y_train)  # ✅ NEW
+svm_model.fit(x_train_vec, y_train)  
 print("SVM trained!")
 
 #%% Evaluate Models
@@ -151,7 +151,7 @@ import os
 # Save in the project folder
 
 with open(MODEL_PATH, "wb") as f:
-    pickle.dump(svm_model, f)
+    pickle.dump(lr_model, f)
     
 with open(VECTORIZER_PATH, "wb") as f:
     pickle.dump(vectorizer, f)
