@@ -64,8 +64,8 @@ The model predicts:
 ```
 ## ▶️ How to Run
 
-pip install -r requirements.txt  
-python train.py  
+pip install -r requirements.txt
+streamlit run app.py
 
 ---
 
