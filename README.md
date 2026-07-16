@@ -63,10 +63,10 @@ The model predicts:
 ---
 ```
 ## ▶️ How to Run
-
+```bash
 pip install -r requirements.txt
 streamlit run app.py
-
+```
 ---
 
 ## TEAM MEMBER
